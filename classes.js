@@ -14,7 +14,7 @@ class Hero {
       `\nPower: ${this.stats.str}` +
       `\nIntelligence: ${this.stats.int}` +
       `\nDexterity: ${this.stats.inst}`;
-    return infoHero;
+    console.log(infoHero);
   }
 }
 
