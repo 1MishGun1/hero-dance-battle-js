@@ -14,6 +14,7 @@ class Hero {
       `\nPower: ${this.stats.str}` +
       `\nIntelligence: ${this.stats.int}` +
       `\nDexterity: ${this.stats.inst}`;
+    alert(infoHero);
     console.log(infoHero);
   }
 }
