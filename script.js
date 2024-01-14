@@ -157,6 +157,9 @@ function arena(firstHero, secondHero) {
 
   console.log("Sum points parametrs first hero: ", firstHeroSum);
   console.log("Sum points parametrs second hero: ", secondHeroSum);
+  alert(
+    `Sum points parametrs: \nfirst hero: ${firstHeroSum} \nsecond hero: ${secondHeroSum}`
+  );
 
   if (firstHeroSum > secondHeroSum) {
     winner = firstHero;
