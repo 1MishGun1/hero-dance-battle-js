@@ -188,10 +188,10 @@ doSkillButton.onclick = () => {
     } else if (playerHero.constructor.name === 'Knight') {
       playerHero.dexterityUpKnight(playerHero);
     } else {
-      console.log('Упс! Произошла какая-то ошибка!');
+      console.log('It is fatal error');
     }
   } else {
-    alert('Сначала добавьте игрока!');
+    alert('Please, add new player');
   }
   displayPlayerHero(playerHero);
 };
