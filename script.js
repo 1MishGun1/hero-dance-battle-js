@@ -1,8 +1,8 @@
 // Initilisation buttons
-const sendToBattleButton = document.getElementById("sendToBattleButton");
-const getEnemyButton = document.getElementById("getEnemyButton");
-const doSkillButton = document.getElementById("doSkillButton");
-const startBattleButton = document.getElementById("startBattleButton");
+const sendToBattleButton = document.getElementById('sendToBattleButton');
+const getEnemyButton = document.getElementById('getEnemyButton');
+const doSkillButton = document.getElementById('doSkillButton');
+const startBattleButton = document.getElementById('startBattleButton');
 
 // Limiters heroes
 const gameParameters = {
@@ -12,9 +12,9 @@ const gameParameters = {
 };
 
 const gameClasses = {
-  Mage: "Маг",
-  Knight: "Рыцарь",
-  Hero: "Класс",
+  Mage: 'Маг',
+  Knight: 'Рыцарь',
+  Hero: 'Класс',
 };
 
 // Initilisation heroes
@@ -23,51 +23,51 @@ let enemyHero = null;
 
 // Show information player hero
 function displayPlayerHero(hero) {
-  document.getElementById("playerHeroClass").innerHTML =
+  document.getElementById('playerHeroClass').innerHTML =
     gameClasses[hero.constructor.name];
-  document.getElementById("playerHeroName").innerHTML = hero.name;
-  document.getElementById("playerHeroLevel").innerHTML = hero.level;
-  document.getElementById("playerHeroHp").innerHTML = hero.healthPoints;
-  document.getElementById("playerHeroStrength").innerHTML = hero.stats.str;
-  document.getElementById("playerHeroIntelligence").innerHTML = hero.stats.int;
-  document.getElementById("playerHeroAgility").innerHTML = hero.stats.agi;
+  document.getElementById('playerHeroName').innerHTML = hero.name;
+  document.getElementById('playerHeroLevel').innerHTML = hero.level;
+  document.getElementById('playerHeroHp').innerHTML = hero.healthPoints;
+  document.getElementById('playerHeroStrength').innerHTML = hero.stats.str;
+  document.getElementById('playerHeroIntelligence').innerHTML = hero.stats.int;
+  document.getElementById('playerHeroAgility').innerHTML = hero.stats.agi;
 
   hero.displayHero();
 }
 
 // Show information enemy hero
 function displayEnemyHero(hero) {
-  document.getElementById("enemyHeroClass").innerHTML =
+  document.getElementById('enemyHeroClass').innerHTML =
     gameClasses[hero.constructor.name];
-  document.getElementById("enemyHeroName").innerHTML = hero.name;
-  document.getElementById("enemyHeroLevel").innerHTML = hero.level;
-  document.getElementById("enemyHeroHp").innerHTML = hero.healthPoints;
-  document.getElementById("enemyHeroStrength").innerHTML = hero.stats.str;
-  document.getElementById("enemyHeroIntelligence").innerHTML = hero.stats.int;
-  document.getElementById("enemyHeroAgility").innerHTML = hero.stats.agi;
+  document.getElementById('enemyHeroName').innerHTML = hero.name;
+  document.getElementById('enemyHeroLevel').innerHTML = hero.level;
+  document.getElementById('enemyHeroHp').innerHTML = hero.healthPoints;
+  document.getElementById('enemyHeroStrength').innerHTML = hero.stats.str;
+  document.getElementById('enemyHeroIntelligence').innerHTML = hero.stats.int;
+  document.getElementById('enemyHeroAgility').innerHTML = hero.stats.agi;
 
   hero.displayHero();
 }
 
 // Information to hero player
 sendToBattleButton.onclick = () => {
-  const heroName = document.getElementById("name").value;
-  if (heroName !== "") {
+  const heroName = document.getElementById('name').value;
+  if (heroName !== '') {
     const heroClass = document.querySelector(
       'input[name="class"]:checked'
     ).value;
-    const heroLevel = document.getElementById("level").value;
+    const heroLevel = document.getElementById('level').value;
     const heroStats = {};
 
-    heroStats.str = Number(document.getElementById("strength").value);
+    heroStats.str = Number(document.getElementById('strength').value);
     if (heroStats.str > gameParameters.MAX_STAT) {
       heroStats.str = gameParameters.MAX_STAT;
     }
-    heroStats.int = Number(document.getElementById("intelligence").value);
+    heroStats.int = Number(document.getElementById('intelligence').value);
     if (heroStats.int > gameParameters.MAX_STAT) {
       heroStats.int = gameParameters.MAX_STAT;
     }
-    heroStats.agi = Number(document.getElementById("agility").value);
+    heroStats.agi = Number(document.getElementById('agility').value);
     if (heroStats.agi > gameParameters.MAX_STAT) {
       heroStats.agi = gameParameters.MAX_STAT;
     }
@@ -75,9 +75,9 @@ sendToBattleButton.onclick = () => {
     const additionalAbility = document.querySelector(
       'input[name="additionalAbility"]:checked'
     ).value;
-    const additionalStat = document.getElementById("additionalStat").value;
+    const additionalStat = document.getElementById('additionalStat').value;
 
-    if (heroClass === "Mage") {
+    if (heroClass === 'Mage') {
       playerHero = new Mage(
         heroName,
         heroLevel,
@@ -86,7 +86,7 @@ sendToBattleButton.onclick = () => {
         additionalAbility,
         additionalStat
       );
-    } else if (heroClass === "Knight") {
+    } else if (heroClass === 'Knight') {
       playerHero = new Knight(
         heroName,
         heroLevel,
@@ -96,16 +96,16 @@ sendToBattleButton.onclick = () => {
         additionalStat
       );
     } else {
-      console.error("Fatal error! Something needs to be fixed.");
+      console.error('Fatal error! Something needs to be fixed.');
       return;
     }
     displayPlayerHero(playerHero);
 
     // Delete block buttons
-    getEnemyButton.removeAttribute("disabled");
-    doSkillButton.removeAttribute("disabled");
+    getEnemyButton.removeAttribute('disabled');
+    doSkillButton.removeAttribute('disabled');
   } else {
-    alert("Напиши герою имя");
+    alert('Напиши герою имя');
   }
 };
 
@@ -128,10 +128,10 @@ getEnemyButton.onclick = () => {
 
       // Checked second player
       if (playerHero) {
-        startBattleButton.removeAttribute("disabled");
+        startBattleButton.removeAttribute('disabled');
       }
     })
-    .catch((error) => console.error("Error: ", error));
+    .catch((error) => console.error('Error: ', error));
 };
 
 // Win hero
@@ -155,8 +155,8 @@ function arena(firstHero, secondHero) {
   let firstHeroSum = countStatsSum(firstHero);
   let secondHeroSum = countStatsSum(secondHero);
 
-  console.log("Sum points parametrs first hero: ", firstHeroSum);
-  console.log("Sum points parametrs second hero: ", secondHeroSum);
+  console.log('Sum points parametrs first hero: ', firstHeroSum);
+  console.log('Sum points parametrs second hero: ', secondHeroSum);
   alert(
     `Sum points parametrs: \nfirst hero: ${firstHeroSum} \nsecond hero: ${secondHeroSum}`
   );
@@ -171,11 +171,27 @@ function arena(firstHero, secondHero) {
     console.log(`Rhythmically honoring the winner: ${winner.name}`);
     alert(`Rhythmically honoring the winner: ${winner.name}`);
   } else {
-    console.log("Friendship won the dance battle!");
-    alert("Friendship won the dance battle!");
+    console.log('Friendship won the dance battle!');
+    alert('Friendship won the dance battle!');
   }
 }
 
 startBattleButton.onclick = () => {
   arena(playerHero, enemyHero);
+};
+
+// Chiting button
+doSkillButton.onclick = () => {
+  if (playerHero) {
+    if (playerHero.constructor.name === 'Mage') {
+      playerHero.hpUpdateMage(playerHero);
+    } else if (playerHero.constructor.name === 'Knight') {
+      playerHero.dexterityUpKnight(playerHero);
+    } else {
+      console.log('Упс! Произошла какая-то ошибка!');
+    }
+  } else {
+    alert('Сначала добавьте игрока!');
+  }
+  displayPlayerHero(playerHero);
 };
