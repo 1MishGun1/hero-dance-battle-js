@@ -4,6 +4,7 @@ class Hero {
     this.level = level;
     this.healthPoints = healthPoints;
     this.stats = stats;
+    this.stats.inst = 0;
   }
 
   displayHero() {
